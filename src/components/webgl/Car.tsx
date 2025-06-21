@@ -270,12 +270,6 @@ export function Car({renderOrder = 1}: {renderOrder?: number}) {
   return (
     <group renderOrder={renderOrder}>
       <primitive object={scene} scale={0.5} />
-      <ContactShadows
-        opacity={1}
-        scale={10}
-        blur={1.5}
-        far={2.75}
-      />
     </group>
   )
 }

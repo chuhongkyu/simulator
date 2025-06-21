@@ -6,6 +6,8 @@ import Path from "./Path";
 import MainCar from "./MainCar";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import Background from "./Background";
+import pathData from "@/utils/data";
+import Map from "./Map";
 
 const Scene = () => {
   return (
@@ -18,10 +20,11 @@ const Scene = () => {
         />
         <Background/>
         <Lights />  
-        {/* <Floor/> */}
+        <Floor/>
         <MainCar/>
         <OrbitControls/>
-        <Path color="#50a0b6" start={[0, 0, 0]} end={[5, 0, -20]} />
+        <Path points={pathData[0].points} />
+        <Map/>
     </Canvas>
     )
 };
