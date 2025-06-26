@@ -1,9 +1,9 @@
-import buildingData from '@/utils/billing.json';
+import map from '@/utils/map.json';
 import { useBuildingFeatures } from '@/hooks/useBuildingFeatures';
 import BuildingObject from './object/BuildingObject';
 
 const MapBuildings = () => {
-  const { features, loading, error } = useBuildingFeatures(buildingData);
+  const { features, loading, error } = useBuildingFeatures(map);
 
   const ORIGIN: [number, number] = [127.111304, 37.393714];
 

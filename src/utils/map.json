@@ -2,7 +2,7 @@
   "type": "FeatureCollection",
   "generator": "overpass-turbo",
   "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
-  "timestamp": "2025-06-22T12:16:14Z",
+  "timestamp": "2025-06-25T21:32:45Z",
   "features": [
     {
       "type": "Feature",
@@ -4387,6 +4387,55 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/456481831",
+        "addr:city": "성남시",
+        "addr:housenumber": "8",
+        "addr:postcode": "13529",
+        "addr:province": "경기도",
+        "addr:street": "판교역로146번길 (Pangyoyeok-ro 146beon-gil)",
+        "amenity": "parking",
+        "name": "판교공영주차장",
+        "name:en": "Pan-gyo public parking space",
+        "name:ja": "板橋公営駐車場",
+        "name:ko": "판교공영주차장",
+        "parking": "multi-storey"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              127.111026,
+              37.3931465
+            ],
+            [
+              127.1110185,
+              37.393579
+            ],
+            [
+              127.1106674,
+              37.3935751
+            ],
+            [
+              127.1103989,
+              37.3935722
+            ],
+            [
+              127.1104064,
+              37.3931396
+            ],
+            [
+              127.111026,
+              37.3931465
+            ]
+          ]
+        ]
+      },
+      "id": "way/456481831"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/627421033",
         "building": "yes",
         "name": "판교 노인복지관"
@@ -4840,6 +4889,49 @@
     {
       "type": "Feature",
       "properties": {
+        "@id": "way/1181998884",
+        "amenity": "parking"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              127.1116035,
+              37.3930622
+            ],
+            [
+              127.1114613,
+              37.3930611
+            ],
+            [
+              127.1114687,
+              37.3924528
+            ],
+            [
+              127.1116258,
+              37.3924541
+            ],
+            [
+              127.1116215,
+              37.3928104
+            ],
+            [
+              127.1116065,
+              37.3928103
+            ],
+            [
+              127.1116035,
+              37.3930622
+            ]
+          ]
+        ]
+      },
+      "id": "way/1181998884"
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "@id": "way/1306729812",
         "building": "apartments",
         "layer": "1",
@@ -4916,6 +5008,560 @@
         ]
       },
       "id": "way/1306729813"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1359320262",
+        "amenity": "parking"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              127.1087187,
+              37.3896482
+            ],
+            [
+              127.1087649,
+              37.3897133
+            ],
+            [
+              127.1088712,
+              37.389885
+            ],
+            [
+              127.108757,
+              37.3899393
+            ],
+            [
+              127.1086954,
+              37.3898391
+            ],
+            [
+              127.1084776,
+              37.3899292
+            ],
+            [
+              127.108422,
+              37.3898276
+            ],
+            [
+              127.1083857,
+              37.3897611
+            ],
+            [
+              127.1087187,
+              37.3896482
+            ]
+          ]
+        ]
+      },
+      "id": "way/1359320262"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3715574842",
+        "highway": "traffic_signals",
+        "traffic_signals": "signal",
+        "traffic_signals:direction": "both"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1129478,
+          37.3937348
+        ]
+      },
+      "id": "node/3715574842"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4266113667",
+        "highway": "traffic_signals",
+        "traffic_signals": "signal",
+        "traffic_signals:direction": "both"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1096638,
+          37.3937455
+        ]
+      },
+      "id": "node/4266113667"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4350141114",
+        "highway": "traffic_signals",
+        "traffic_signals": "signal",
+        "traffic_signals:direction": "both"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.111432,
+          37.3937084
+        ]
+      },
+      "id": "node/4350141114"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4350141121",
+        "addr:city": "성남시",
+        "addr:housenumber": "20",
+        "addr:postcode": "13529",
+        "addr:province": "경기도",
+        "addr:street": "판교역로146번길",
+        "name": "현대백화점 판교점",
+        "name:en": "Hyundai Department Store Pangyo Branch",
+        "name:ja": "現代百貨店 板橋店",
+        "name:ko": "현대백화점 판교점",
+        "phone": "+82 31 5170 2233",
+        "shop": "department_store",
+        "website": "https://www.ehyundai.com/newPortal/DP/DP000000_V.do?branchCd=B00148000"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1119913,
+          37.3927998
+        ]
+      },
+      "id": "node/4350141121"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4355887829",
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "covered": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "판교역.낙생육교.현대백화점",
+        "name:ko": "판교역.낙생육교.현대백화점",
+        "network": "경기도 시내버스",
+        "network:en": "G-BUS",
+        "network:ko": "경기도 시내버스",
+        "network:wikidata": "Q4859793",
+        "public_transport": "platform",
+        "ref": "07492;47633",
+        "route_ref": "103;341;521;1005;1150;1151;1500-2;3330;3500;7007-1;8106;G8110;9000;9300;9401",
+        "tactile_paving": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1110635,
+          37.3914742
+        ]
+      },
+      "id": "node/4355887829"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4355887830",
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "covered": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "판교역.낙생육교.현대백화점",
+        "name:ko": "판교역.낙생육교.현대백화점",
+        "network": "경기도 시내버스",
+        "network:en": "G-BUS",
+        "network:ko": "경기도 시내버스",
+        "network:wikidata": "Q4859793",
+        "public_transport": "platform",
+        "ref": "07489;47638",
+        "route_ref": "103;107;340;341;360;521;1005;1101;1150;1151;1500-2;3330;3500;6003;7007-1;8106;G8110;9000;9007;9300;9401",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1111148,
+          37.391864
+        ]
+      },
+      "id": "node/4355887830"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4355887831",
+        "bench": "yes",
+        "bus": "yes",
+        "covered": "yes",
+        "highway": "bus_stop",
+        "name": "백현마을1단지",
+        "name:ko": "백현마을1단지",
+        "network": "경기도 시내버스",
+        "network:en": "G-BUS",
+        "network:ko": "경기도 시내버스",
+        "network:wikidata": "Q4859793",
+        "public_transport": "platform",
+        "ref": "07488;47632",
+        "route_ref": "누리1;누리3;3;32;55;75;76;101;103;310;341;370;380;521;602;1005;1150;1151;1500-2;3330;3500;4000;7007-1;9000;9300;9401"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1144842,
+          37.3919465
+        ]
+      },
+      "id": "node/4355887831"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4355887832",
+        "bench": "yes",
+        "bus": "yes",
+        "covered": "yes",
+        "highway": "bus_stop",
+        "name": "백현마을4단지",
+        "name:ko": "백현마을4단지",
+        "network": "경기도 시내버스",
+        "network:en": "G-BUS",
+        "network:ko": "경기도 시내버스",
+        "network:wikidata": "Q4859793",
+        "public_transport": "platform",
+        "ref": "07493;47634",
+        "route_ref": "101;3330;7007-1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.115769,
+          37.3917164
+        ]
+      },
+      "id": "node/4355887832"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4530371715",
+        "bench": "yes",
+        "bus": "yes",
+        "covered": "yes",
+        "highway": "bus_stop",
+        "name": "판교역동편",
+        "name:ko": "판교역동편",
+        "network": "경기도 시내버스",
+        "network:en": "G-BUS",
+        "network:ko": "경기도 시내버스",
+        "network:wikidata": "Q4859793",
+        "public_transport": "platform",
+        "ref": "07576",
+        "route_ref": "101;4000;9007"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1131583,
+          37.3948314
+        ]
+      },
+      "id": "node/4530371715"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4531010905",
+        "bench": "yes",
+        "bus": "yes",
+        "covered": "yes",
+        "highway": "bus_stop",
+        "name": "판교역서편",
+        "name:ko": "판교역서편",
+        "network": "경기도 시내버스",
+        "network:en": "G-BUS",
+        "network:ko": "경기도 시내버스",
+        "network:wikidata": "Q4859793",
+        "public_transport": "platform",
+        "ref": "07455"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.109484,
+          37.3946417
+        ]
+      },
+      "id": "node/4531010905"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4531010906",
+        "bench": "no",
+        "bus": "yes",
+        "covered": "no",
+        "highway": "bus_stop",
+        "name": "판교역서편",
+        "name:ko": "판교역서편",
+        "network": "경기도 시내버스",
+        "network:en": "G-BUS",
+        "network:ko": "경기도 시내버스",
+        "network:wikidata": "Q4859793",
+        "public_transport": "platform",
+        "ref": "07407"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1098289,
+          37.3947379
+        ]
+      },
+      "id": "node/4531010906"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4537324925",
+        "highway": "traffic_signals",
+        "name": "느티나무사거리",
+        "name:ko": "느티나무사거리",
+        "traffic_signals": "signal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1129914,
+          37.3917427
+        ]
+      },
+      "id": "node/4537324925"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4537505426",
+        "bench": "yes",
+        "bus": "yes",
+        "covered": "yes",
+        "highway": "bus_stop",
+        "name": "백현육교",
+        "name:ko": "백현육교",
+        "network": "경기도 시내버스",
+        "network:en": "G-BUS",
+        "network:ko": "경기도 시내버스",
+        "network:wikidata": "Q4859793",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1131831,
+          37.3894313
+        ]
+      },
+      "id": "node/4537505426"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4537505433",
+        "bench": "yes",
+        "bus": "yes",
+        "covered": "yes",
+        "highway": "bus_stop",
+        "name": "백현육교",
+        "name:ko": "백현육교",
+        "network": "경기도 시내버스",
+        "network:en": "G-BUS",
+        "network:ko": "경기도 시내버스",
+        "network:wikidata": "Q4859793",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1127888,
+          37.3893589
+        ]
+      },
+      "id": "node/4537505433"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4750039549",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "백현마을6단지",
+        "name:ko": "백현마을6단지",
+        "network": "경기도 시내버스",
+        "network:en": "G-BUS",
+        "network:ko": "경기도 시내버스",
+        "network:wikidata": "Q4859793",
+        "public_transport": "platform",
+        "ref": "07682"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1084881,
+          37.3891883
+        ]
+      },
+      "id": "node/4750039549"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4750039550",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "백현마을6단지",
+        "name:ko": "백현마을6단지",
+        "network": "경기도 시내버스",
+        "network:en": "G-BUS",
+        "network:ko": "경기도 시내버스",
+        "network:wikidata": "Q4859793",
+        "public_transport": "platform",
+        "ref": "07681"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1092072,
+          37.3899075
+        ]
+      },
+      "id": "node/4750039550"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4750039551",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "낙생지하차도",
+        "name:ko": "낙생지하차도",
+        "network": "경기도 시내버스",
+        "network:en": "G-BUS",
+        "network:ko": "경기도 시내버스",
+        "network:wikidata": "Q4859793",
+        "public_transport": "platform",
+        "ref": "07514"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.109476,
+          37.3931504
+        ]
+      },
+      "id": "node/4750039551"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4750039552",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "낙생지하차도",
+        "name:ko": "낙생지하차도",
+        "network": "경기도 시내버스",
+        "network:en": "G-BUS",
+        "network:ko": "경기도 시내버스",
+        "network:wikidata": "Q4859793",
+        "public_transport": "platform",
+        "ref": "07461"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1098112,
+          37.3930204
+        ]
+      },
+      "id": "node/4750039552"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5078756521",
+        "addr:city": "성남시",
+        "addr:housenumber": "20",
+        "addr:postcode": "13529",
+        "addr:province": "경기도",
+        "addr:street": "판교역로146번길",
+        "level": "-2",
+        "name": "교보문고",
+        "name:ja": "教保文庫",
+        "name:ko": "교보문고",
+        "shop": "books"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.112374,
+          37.3931253
+        ]
+      },
+      "id": "node/5078756521"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7983920579",
+        "highway": "traffic_signals",
+        "name": "느티나무사거리",
+        "name:ko": "느티나무사거리",
+        "traffic_signals": "signal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1129902,
+          37.3916192
+        ]
+      },
+      "id": "node/7983920579"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12157199836",
+        "bench": "no",
+        "bus": "yes",
+        "covered": "no",
+        "highway": "bus_stop",
+        "name": "판교역남편",
+        "name:ko": "판교역남편",
+        "network": "경기도 시내버스",
+        "network:en": "G-BUS",
+        "network:ko": "경기도 시내버스",
+        "network:wikidata": "Q4859793",
+        "public_transport": "platform",
+        "ref": "07478"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.1112985,
+          37.3937913
+        ]
+      },
+      "id": "node/12157199836"
     }
   ]
 }

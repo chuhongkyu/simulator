@@ -20,7 +20,28 @@ const BuildingObject = ({ geometry, height, origin }: BuildingObjectProps) => {
   
   
     const shapeGeometry = useMemo(() => {
-        const shape = new THREE.Shape();
+        let shape = new THREE.Shape();
+        // Point 타입 처리
+        if (geometry.type === 'Point') {
+            const [lng, lat] = geometry.coordinates;
+            const [x, z] = latLonToXY(lng, lat, origin);
+            
+            // Point를 작은 정사각형으로 표현
+            const size = 5; // 미터 단위
+
+            shape.moveTo(x - size/2, z - size/2);
+            shape.lineTo(x + size/2, z - size/2);
+            shape.lineTo(x + size/2, z + size/2);
+            shape.lineTo(x - size/2, z + size/2);
+            shape.lineTo(x - size/2, z - size/2);
+
+            const extrudeSettings = {
+                depth: 0.05,
+                bevelEnabled: false
+            };
+
+            return new THREE.ExtrudeGeometry(shape, extrudeSettings);
+        }
 
         // MultiPolygon 또는 Polygon 처리
         const polygons = geometry.type === 'MultiPolygon' ? geometry.coordinates : [geometry.coordinates];
