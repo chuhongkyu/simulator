@@ -9,7 +9,6 @@ import FollowCamera from "./common/FollowCamera";
 const MainCar = () => {
   const carRef = useRef<Group>(null);
   const [path, setPath] = useState<[number, number, number][]>(pathData[0].points);
-  const { camera } = useThree();
   
   // 경로 추적을 위한 상태들
   const [currentPathIndex, setCurrentPathIndex] = useState(0);

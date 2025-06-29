@@ -117,9 +117,10 @@ const FollowCamera: React.FC<FollowCameraProps> = (
   useFrame(() => {
     if(cameraMode === "Following"){
       if(targetRef.current){
-        followPosition()
+        followPivotPoint()
       }
       if (pivotRef?.current) {
+        // camera.rotation.copy(pivotRef.current.rotation);
         camera.lookAt(pivotRef.current.position);
       }
     }
@@ -131,9 +132,12 @@ const FollowCamera: React.FC<FollowCameraProps> = (
     }
   },[cameraMode])
 
-  function followPosition() {
+  function followPivotPoint() {
     if (pivotRef.current && targetRef.current) {
-        pivotRef.current.position.copy(targetRef.current.position);
+      pivotRef.current.position.copy(targetRef.current.position);
+      
+      const targetRotation = targetRef.current.rotation.y + (-Math.PI);
+      pivotRef.current.rotation.y += (targetRotation - pivotRef.current.rotation.y) * 0.1;
     }
   }
 
