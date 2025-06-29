@@ -10,7 +10,7 @@ const MapBuildings = () => {
   if (loading || error) return null;
 
   return (
-    <group rotation={[-Math.PI / 2, 0, Math.PI / 2]} scale={0.5}>
+    <group rotation={[Math.PI / 2, 0, Math.PI / 2]} scale={0.5}>
       {features?.map((feature) => {
             const geometry = feature.geometry;
             const height = 10;

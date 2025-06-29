@@ -268,7 +268,7 @@ export function Car({renderOrder = 1}: {renderOrder?: number}) {
   // }, [scene])
 
   return (
-    <group renderOrder={renderOrder}>
+    <group rotation={[0, Math.PI, 0]} renderOrder={renderOrder}>
       <primitive object={scene} scale={0.5} />
     </group>
   )

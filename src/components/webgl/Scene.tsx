@@ -8,24 +8,37 @@ import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import Background from "./Background";
 import pathData from "@/utils/data";
 import Map from "./Map";
+import { useEffect, useRef } from "react";
+import useUIControllerStore from "@/store/useUIController";
 
 const Scene = () => {
-  return (
-    <Canvas shadows>
-        <PerspectiveCamera
-            makeDefault
-            position={[0, 10, 10]}
-            rotation={[-Math.PI / 4, 0, 0]}
-            fov={40}
-        />
-        <Background/>
-        <Lights />  
-        <Floor/>
-        <MainCar/>
-        <OrbitControls/>
-        <Path points={pathData[0].points} />
-        <Map/>
-    </Canvas>
+    const canvasRef = useRef<HTMLDivElement>(null);
+    const setDragContainerRef = useUIControllerStore(state => state.setDragContainerRef);
+
+    useEffect(() => {
+        if (canvasRef.current) {
+            setDragContainerRef(canvasRef.current);
+        }
+    }, [canvasRef]);
+    
+    return (
+        <div ref={canvasRef} className="w-full h-full">
+            <Canvas 
+                shadows
+                camera={{
+                    position: [0, 10, 10],
+                    fov: 40,
+                }}
+            >
+                <Background/>
+                <Lights />  
+                <Floor/>
+                <MainCar/>
+                {/* <OrbitControls/> */}
+                <Path points={pathData[0].points} />
+                <Map/>
+            </Canvas>
+        </div>
     )
 };
 
