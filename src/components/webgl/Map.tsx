@@ -1,5 +1,3 @@
-import mapData from "@/utils/mapData";
-import GroundArea from "./object/GroundArea";
 import MapBuildings from "./MapBuildings";
 
 const Map = () => {
