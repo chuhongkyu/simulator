@@ -23,13 +23,7 @@ const Scene = () => {
     
     return (
         <div ref={canvasRef} className="w-full h-full">
-            <Canvas 
-                shadows
-                camera={{
-                    position: [0, 10, 10],
-                    fov: 40,
-                }}
-            >
+            <Canvas shadows>
                 <Background/>
                 <Lights />  
                 <Floor/>

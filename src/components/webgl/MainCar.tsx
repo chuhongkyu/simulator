@@ -13,6 +13,10 @@ const MainCar = () => {
   // 경로 추적을 위한 상태들
   const [currentPathIndex, setCurrentPathIndex] = useState(0);
   const speed = 0.005; // 매우 낮은 속도로 설정
+  
+  // 부드러운 회전을 위한 상태
+  const [targetRotationY, setTargetRotationY] = useState(0);
+  const rotationSpeed = 0.05; // 회전 속도 (0~1, 클수록 빠름)
 
   useEffect(() => {
     setPath(pathData[0].points);
@@ -42,8 +46,18 @@ const MainCar = () => {
       // 차량이 다음 점을 향하도록 회전 계산
       const directionX = nextPoint[0] - currentPoint[0];
       const directionZ = nextPoint[2] - currentPoint[2];
-      const angle = Math.atan2(directionX, directionZ);
-      carRef.current.rotation.y = angle;
+      
+      // 방향 벡터를 이용해 Y축 회전각 계산 (atan2 사용)
+      const newTargetRotationY = Math.atan2(-directionX, -directionZ);
+      
+      // 목표 회전각 업데이트
+      setTargetRotationY(newTargetRotationY);
+      
+      // 부드러운 회전 적용 (lerp 사용)
+      const currentRotationY = carRef.current.rotation.y;
+      const smoothedRotationY = currentRotationY + (targetRotationY - currentRotationY) * rotationSpeed;
+      
+      carRef.current.rotation.y = smoothedRotationY;
       
       // 진행도 업데이트 (매우 천천히)
       setCurrentPathIndex(prevIndex => {

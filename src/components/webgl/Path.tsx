@@ -18,20 +18,20 @@ const PathMesh = ({
 }: PathMeshProps) => {
   const { geometry } = useMemo(() => {
     const vectorPoints = points.map(([x, y, z]) => new THREE.Vector3(x, y, z));
-
-    const curve = new THREE.CatmullRomCurve3(vectorPoints);
-    const geometry = new THREE.TubeGeometry(curve, 100, width, 12, false);
-
+    const curve = new THREE.CatmullRomCurve3(vectorPoints, false, 'catmullrom', 0.5);
+    
+    // TubeGeometry로 실제 두께를 가진 선 생성
+    const geometry = new THREE.TubeGeometry(curve, 500, width, 8, false);
+    
     return { geometry };
   }, [points, width]);
 
   return (
-    <mesh position={[0, posY, 0]} scale={[1, 0.1, 1]} geometry={geometry} renderOrder={renderOrder}>
-      <meshStandardMaterial 
+    <mesh geometry={geometry} renderOrder={renderOrder} scale={[1,0.1,1]}>
+      <meshBasicMaterial 
         color={color} 
         transparent 
-        opacity={0.8} 
-        side={THREE.DoubleSide} 
+        opacity={0.8}
       />
     </mesh>
   );

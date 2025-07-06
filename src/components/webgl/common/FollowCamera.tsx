@@ -51,7 +51,7 @@ const FollowCamera: React.FC<FollowCameraProps> = (
   }, [pivotRef, viewport.width, viewport.height, cameraMode, dragContainerRef]);
   
   function resetCam() {
-    pivotRef.current.position.lerp(new Vector3(0,0,0), 0.9);
+    pivotRef.current.position.lerp(new Vector3(0,10,10), 0.9);
     pivotRef.current.rotation.set(0,0,0)
   }
 
@@ -89,7 +89,7 @@ const FollowCamera: React.FC<FollowCameraProps> = (
       const targetRotation = targetRef.current.rotation.y;
       pivotRef.current.rotation.y = THREE.MathUtils.lerp(
         pivotRef.current.rotation.y, 
-        targetRotation + Math.PI, 
+        targetRotation,
         0.1
       );
     }
