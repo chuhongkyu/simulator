@@ -10,18 +10,19 @@ const OrbitCamera: React.FC<FollowCameraProps> = ({targetRef}) => {
 
     useEffect(() => {
         if (targetRef.current) {
+            console.log(targetRef.current)
             setTarget(targetRef.current.position.clone());
         }
-    }, [targetRef]);
+    }, [targetRef, cameraMode]);
 
     return (
         <>
             <OrbitControls 
+                position0={ new Vector3(target.x, target.y + 5 , target.z + 5)}
                 target={target}
                 minDistance={10}
                 maxDistance={100}
-                minPolarAngle={Math.PI / 4}
-                maxPolarAngle={Math.PI / 2}
+
                 enabled={cameraMode === "Default"}
                 enableZoom={true}
                 enablePan={true}
