@@ -5,9 +5,11 @@ import { Group, Vector3 } from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 import pathData from "@/utils/data";
 import FollowCamera from "./common/FollowCamera";
+import OrbitCamera from "./common/OrbitCamera";
 
 const MainCar = () => {
   const carRef = useRef<Group>(null);
+  
   const [path, setPath] = useState<[number, number, number][]>(pathData[0].points);
   
   // 경로 추적을 위한 상태들
@@ -16,7 +18,7 @@ const MainCar = () => {
   
   // 부드러운 회전을 위한 상태
   const [targetRotationY, setTargetRotationY] = useState(0);
-  const rotationSpeed = 0.05; // 회전 속도 (0~1, 클수록 빠름)
+  const rotationSpeed = 0.05;
 
   useEffect(() => {
     setPath(pathData[0].points);
@@ -76,11 +78,10 @@ const MainCar = () => {
       <group ref={carRef}>
         <Car renderOrder={4}/>
       </group>
+      <OrbitCamera targetRef={carRef}/>
       <FollowCamera 
         debug={true}
-        id="mainCar" 
         targetRef={carRef} 
-        cameraMode="Following" 
         cameraZoom={1} 
         cameraPosition={[0, 10, 10]}
       />

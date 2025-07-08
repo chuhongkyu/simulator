@@ -1,0 +1,1 @@
+export type CameraModeType = "Following" | "Default";

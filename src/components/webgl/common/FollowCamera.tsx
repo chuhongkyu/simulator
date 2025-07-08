@@ -4,21 +4,20 @@ import { Quaternion, Vector3, Euler, Mesh } from "three";
 import { FollowCameraProps } from "./Camera";
 import useUIControllerStore from "@/store/useUIController";
 import * as THREE from "three";
+import useCameraControllerStore from "@/store/useCameraController";
 
 
 const FollowCamera: React.FC<FollowCameraProps> = (
   { 
-    id, 
     targetRef, 
     debug = false,
-    cameraMode = "Following",
     cameraZoom = 1,
     cameraPosition = [0, 10, 10],
   }) => {
 
   const { camera, viewport } = useThree();
   const dragContainerRef = useUIControllerStore(state => state.dragContainerRef);
-
+  const cameraMode = useCameraControllerStore(state => state.cameraMode);
   const minZoom = 0.25;
   const maxZoom = 5;
   const zoomSpeed = 0.1;
@@ -50,10 +49,10 @@ const FollowCamera: React.FC<FollowCameraProps> = (
     }
   }, [pivotRef, viewport.width, viewport.height, cameraMode, dragContainerRef]);
   
-  function resetCam() {
-    pivotRef.current.position.lerp(new Vector3(0,10,10), 0.9);
-    pivotRef.current.rotation.set(0,0,0)
-  }
+  // function resetCam() {
+  //   pivotRef.current.position.lerp(new Vector3(0,10,10), 0.9);
+  //   pivotRef.current.rotation.set(0,0,0)
+  // }
 
   useEffect(()=>{
     if(cameraMode === "Following"){
@@ -76,12 +75,6 @@ const FollowCamera: React.FC<FollowCameraProps> = (
     }
   });
 
-  useEffect(()=>{
-    if(cameraMode !== "Following"){
-      resetCam();
-    }
-  },[cameraMode])
-
   function followPivotPoint() {
     if (pivotRef.current && targetRef.current) {
       pivotRef.current.position.copy(targetRef.current.position);
@@ -103,7 +96,7 @@ const FollowCamera: React.FC<FollowCameraProps> = (
   )
 
   return (
-    <mesh key={id} name={id} ref={pivotRef}/>
+    <mesh ref={pivotRef}/>
   )
 };
 

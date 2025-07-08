@@ -10,6 +10,7 @@ import pathData from "@/utils/data";
 import Map from "./Map";
 import { useEffect, useRef } from "react";
 import useUIControllerStore from "@/store/useUIController";
+import Nav from "../view/Nav";
 
 const Scene = () => {
     const canvasRef = useRef<HTMLDivElement>(null);
@@ -22,7 +23,8 @@ const Scene = () => {
     }, [canvasRef]);
     
     return (
-        <div ref={canvasRef} className="w-full h-full">
+        <div ref={canvasRef} className="relative w-full h-full">
+            <Nav/>
             <Canvas shadows>
                 <Background/>
                 <Lights />  
