@@ -4,7 +4,6 @@ import Lights from "./Lights";
 import Floor from "./Floor";
 import Path from "./Path";
 import MainCar from "./MainCar";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import Background from "./Background";
 import pathData from "@/utils/data";
 import Map from "./Map";
@@ -25,12 +24,11 @@ const Scene = () => {
     return (
         <div ref={canvasRef} className="relative w-full h-full">
             <Nav/>
-            <Canvas shadows>
+            <Canvas camera={{ position: [0, 10, 10] }} shadows>
                 <Background/>
                 <Lights />  
                 <Floor/>
                 <MainCar/>
-                {/* <OrbitControls/> */}
                 <Path points={pathData[0].points} />
                 <Map/>
             </Canvas>

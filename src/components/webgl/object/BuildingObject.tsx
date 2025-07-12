@@ -8,9 +8,15 @@ interface BuildingObjectProps {
   };
   height: number;
   origin: [number, number];
+  color?: string;
 }
 
-const BuildingObject = ({ geometry, height, origin }: BuildingObjectProps) => {
+const BuildingObject = ({ 
+    geometry, 
+    height, 
+    origin, 
+    color="#FAF5EB" 
+}: BuildingObjectProps) => {
     const latLonToXY = (lng: number, lat: number, origin: [number, number]) => {
         const R = 6371000; // Earth radius in meters
         const dX = (lng - origin[0]) * (Math.PI / 180) * R * Math.cos((lat + origin[1]) / 2 * (Math.PI / 180));
@@ -68,7 +74,7 @@ const BuildingObject = ({ geometry, height, origin }: BuildingObjectProps) => {
 
     return (
         <mesh geometry={shapeGeometry}>
-            <meshStandardMaterial color="#18304A" />
+            <meshStandardMaterial color={color} />
         </mesh>
     );
 };

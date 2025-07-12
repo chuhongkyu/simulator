@@ -59,6 +59,8 @@ const FollowCamera: React.FC<FollowCameraProps> = (
       if(pivotRef){
         makeCamera();
       }
+    }else{
+      camera.rotation.set(0, 0, 0)
     }
     
   },[pivotRef, cameraMode])

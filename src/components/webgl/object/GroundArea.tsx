@@ -13,7 +13,7 @@ const GroundArea = ({
   size,
   height = 0.02,
   radius = 0.05,
-  color = "#223F60",
+  color = "#C9D7E4",
 }: GroundAreaProps) => {
   const [x, z] = size;
   return (

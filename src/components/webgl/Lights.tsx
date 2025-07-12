@@ -1,7 +1,7 @@
 const Lights = () => {
   return (
     <group>
-        <ambientLight intensity={2} />
+        <ambientLight intensity={1.5} />
         <directionalLight 
             position={[10, 10, 10]} 
             intensity={2} 

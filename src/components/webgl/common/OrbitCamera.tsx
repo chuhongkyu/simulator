@@ -18,15 +18,12 @@ const OrbitCamera: React.FC<FollowCameraProps> = ({targetRef}) => {
     return (
         <>
             <OrbitControls 
+                makeDefault
                 position0={ new Vector3(target.x, target.y + 5 , target.z + 5)}
                 target={target}
                 minDistance={10}
-                maxDistance={100}
-
+                maxDistance={80}
                 enabled={cameraMode === "Default"}
-                enableZoom={true}
-                enablePan={true}
-                enableRotate={true}
             />
         </>
     )

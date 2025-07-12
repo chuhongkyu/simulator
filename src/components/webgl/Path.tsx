@@ -12,16 +12,15 @@ interface PathMeshProps {
 const PathMesh = ({
   points,
   color = '#009c8f',
-  width = 0.6,
+  width = 0.3,
   renderOrder = 2,
   posY = -0.1,
 }: PathMeshProps) => {
   const { geometry } = useMemo(() => {
     const vectorPoints = points.map(([x, y, z]) => new THREE.Vector3(x, y, z));
-    const curve = new THREE.CatmullRomCurve3(vectorPoints, false, 'catmullrom', 0.5);
-    
-    // TubeGeometry로 실제 두께를 가진 선 생성
-    const geometry = new THREE.TubeGeometry(curve, 500, width, 8, false);
+    const curve = new THREE.CatmullRomCurve3(vectorPoints);
+
+    const geometry = new THREE.TubeGeometry(curve, 300, width, 4 );
     
     return { geometry };
   }, [points, width]);
