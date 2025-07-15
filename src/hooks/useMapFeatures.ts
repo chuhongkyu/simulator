@@ -10,7 +10,7 @@ interface GeoFeature {
   id: string;
 }
 
-export const useBuildingFeatures = (json: any) => {
+export const useMapFeatures = (json: any) => {
   const [features, setFeatures] = useState<GeoFeature[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);

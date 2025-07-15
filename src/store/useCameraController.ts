@@ -3,12 +3,15 @@ import { create } from "zustand";
 
 interface CameraControllerState {
     cameraMode: CameraModeType;
-    setCameraMode: (cameraMode: CameraModeType) => void;
+    cameraNumber: number;
+    setCameraMode: ({ cameraMode, cameraNumber }:{cameraMode: CameraModeType, cameraNumber: number}) => void;
+    
 }
 
 const useCameraControllerStore = create<CameraControllerState>((set) => ({
     cameraMode: "Following",
-    setCameraMode: (cameraMode) => set({ cameraMode }),
+    cameraNumber: 0,
+    setCameraMode: ({cameraMode, cameraNumber}) => set({ cameraNumber, cameraMode }),
 }));
 
 export default useCameraControllerStore;

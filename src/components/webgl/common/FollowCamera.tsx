@@ -49,10 +49,10 @@ const FollowCamera: React.FC<FollowCameraProps> = (
     }
   }, [pivotRef, viewport.width, viewport.height, cameraMode, dragContainerRef]);
   
-  // function resetCam() {
-  //   pivotRef.current.position.lerp(new Vector3(0,10,10), 0.9);
-  //   pivotRef.current.rotation.set(0,0,0)
-  // }
+  function resetCam() {
+    pivotRef.current.position.lerp(new Vector3(0,10,10), 0.9);
+    pivotRef.current.rotation.set(0,0,0)
+  }
 
   useEffect(()=>{
     if(cameraMode === "Following"){
@@ -60,14 +60,14 @@ const FollowCamera: React.FC<FollowCameraProps> = (
         makeCamera();
       }
     }else{
-      camera.rotation.set(0, 0, 0)
+      resetCam()
     }
     
   },[pivotRef, cameraMode])
 
   useFrame(() => {
     if(cameraMode === "Following"){
-      if(targetRef.current){
+      if(targetRef){
         followPivotPoint()
       }
       if (pivotRef?.current) {
@@ -78,15 +78,16 @@ const FollowCamera: React.FC<FollowCameraProps> = (
   });
 
   function followPivotPoint() {
-    if (pivotRef.current && targetRef.current) {
-      pivotRef.current.position.copy(targetRef.current.position);
+    if (pivotRef.current && targetRef) {
+      pivotRef.current.position.copy(targetRef.position);
       
-      const targetRotation = targetRef.current.rotation.y;
-      pivotRef.current.rotation.y = THREE.MathUtils.lerp(
-        pivotRef.current.rotation.y, 
-        targetRotation,
-        0.1
-      );
+      // const targetRotation = targetRef.rotation.y;
+      // console.log(targetRotation)
+      // pivotRef.current.rotation.y = THREE.MathUtils.lerp(
+      //   pivotRef.current.rotation.y, 
+      //   targetRotation,
+      //   0.1
+      // );
     }
   }
 

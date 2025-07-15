@@ -6,10 +6,12 @@ import Path from "./Path";
 import MainCar from "./MainCar";
 import Background from "./Background";
 import pathData from "@/utils/data";
-import Map from "./Map";
+import Map from "./object/Map";
 import { useEffect, useRef } from "react";
 import useUIControllerStore from "@/store/useUIController";
 import Nav from "../view/Nav";
+import AIPathSystem from "./AIPathSystem";
+import { OrbitControls } from "@react-three/drei";
 
 const Scene = () => {
     const canvasRef = useRef<HTMLDivElement>(null);
@@ -28,8 +30,8 @@ const Scene = () => {
                 <Background/>
                 <Lights />  
                 <Floor/>
-                <MainCar/>
-                <Path points={pathData[0].points} />
+                <OrbitControls minDistance={5} makeDefault/>
+                <AIPathSystem debug={true} />
                 <Map/>
             </Canvas>
         </div>
