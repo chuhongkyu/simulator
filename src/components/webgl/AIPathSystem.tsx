@@ -9,11 +9,12 @@ import {
     Vector3 as YukaVector3,
     Polygon
 } from 'yuka';
-import { navMeshData, pathData } from '@/utils/data';
+import { navMeshData, pathData, waypoints } from '@/utils/data';
 import { Car } from './Car';
 import { Html, Line } from '@react-three/drei';
 import FollowCamera from './common/FollowCamera';
 import useCameraControllerStore from '@/store/useCameraController';
+import { useAIPathSystem } from '@/store/useAIPathSystem';
 
 interface AIPathSystemProps {
     debug?: boolean;
@@ -26,6 +27,7 @@ const AIPathSystem = ({ debug = false }: AIPathSystemProps) => {
     const debugMeshRef = useRef<THREE.Mesh>(null);
     const vehicleMeshesRef = useRef<THREE.Group[]>([]);
     const cameraNumber = useCameraControllerStore(state => state.cameraNumber)
+    const pathColors = useAIPathSystem(state => state.pathColors);
     
     const navMesh = useMemo(() => {
         const mesh = new NavMesh();
@@ -84,11 +86,10 @@ const AIPathSystem = ({ debug = false }: AIPathSystemProps) => {
             vehicle.position.set(startPoint[0], startPoint[1], startPoint[2]);
             
             // 속도 설정
-            vehicle.maxSpeed = 1.5 + (i * 0.2);
+            vehicle.maxSpeed = 5;
             vehicle.maxForce = 5;
             
-            // Steering Behavior 설정 - 각 차량이 다른 경로 사용
-            const followPathBehavior = new FollowPathBehavior(paths[i], 0.5);
+            const followPathBehavior = new FollowPathBehavior(paths[i], 1.2);
             
             vehicle.steering.add(followPathBehavior);
             
@@ -99,22 +100,21 @@ const AIPathSystem = ({ debug = false }: AIPathSystemProps) => {
     }, [paths]);
 
     // 디버그 메시 생성 - navMeshData 사용
-    const debugMesh = useMemo(() => {
-        if (!debug) return null;
+    // const debugMesh = useMemo(() => {
+    //     if (!debug) return null;
         
-        const geometry = new THREE.BufferGeometry();
-        const positions: number[] = [];
+    //     const geometry = new THREE.BufferGeometry();
+    //     const positions: number[] = [];
         
-        // navMeshData의 정점들을 시각화
-        navMeshData.vertices.forEach(vertex => {
-            positions.push(vertex[0], vertex[1], vertex[2]);
-        });
+    //     navMeshData.vertices.forEach(vertex => {
+    //         positions.push(vertex[0], vertex[1], vertex[2]);
+    //     });
         
-        geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-        geometry.computeBoundingSphere();
+    //     geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+    //     geometry.computeBoundingSphere();
         
-        return geometry;
-    }, [debug]);
+    //     return geometry;
+    // }, [debug]);
 
     // NavMesh 폴리곤 시각화
     const navMeshPolygons = useMemo(() => {
@@ -147,7 +147,7 @@ const AIPathSystem = ({ debug = false }: AIPathSystemProps) => {
     const pathLines = useMemo(() => {
         const lines: { points: THREE.Vector3[], color: string }[] = [];
         
-        const colors = ['#009c8f', '#009c8f', '#009c8f'];
+        const colors = [pathColors.Main, pathColors['Sub-1'], pathColors['Sub-2']];
         
         pathData.forEach((routeData, routeIndex) => {
             const points = routeData.points.map(point => 
@@ -161,9 +161,9 @@ const AIPathSystem = ({ debug = false }: AIPathSystemProps) => {
         });
         
         return lines;
-    }, []);
+    }, [pathColors]);
 
-    // AI 업데이트
+    
     useFrame((state, delta) => {
         // 각 차량 업데이트
         vehicles.forEach((vehicle, index) => {
@@ -186,7 +186,7 @@ const AIPathSystem = ({ debug = false }: AIPathSystemProps) => {
     useEffect(() => {
         navMeshRef.current = navMesh;
         vehiclesRef.current = vehicles;
-        pathRef.current = paths[0]; // 첫 번째 경로를 경로 참조로 사용
+        pathRef.current = paths[0];
     }, [navMesh, vehicles, paths]);
 
     return (
@@ -215,13 +215,12 @@ const AIPathSystem = ({ debug = false }: AIPathSystemProps) => {
                     }}
                     position={[vehicle.position.x, vehicle.position.y, vehicle.position.z]}
                 >
-                    <Car renderOrder={index + 4}/>
-                    {/* <Html><p style={{ color: "#fff"}}>{index + "CAR"}</p></Html> */}
+                    <Car key={"Car-" + (index + 1)} name={"Car-" + (index + 1)}/>
                 </group>
             ))}
             
             {/* 웨이포인트 시각화 - 동그란 점으로 */}
-            {/* {debug && waypoints.map((waypoint, index) => (
+            {debug && waypoints.map((waypoint, index) => (
                 <mesh 
                     key={index} 
                     rotation={[-Math.PI/2,0,0]} 
@@ -230,7 +229,7 @@ const AIPathSystem = ({ debug = false }: AIPathSystemProps) => {
                     <circleGeometry args={[0.3, 16]} />
                     <meshBasicMaterial color="#16625b"/>
                 </mesh>
-            ))} */}
+            ))}
             
             {/* NavMesh 정점 디버그 시각화 - Points로 변경 */}
             {/* {debug && debugMesh && (

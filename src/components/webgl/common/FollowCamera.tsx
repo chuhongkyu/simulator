@@ -31,23 +31,6 @@ const FollowCamera: React.FC<FollowCameraProps> = (
     camera.lookAt(pivotRef?.current.position);
     camera.zoom = cameraZoom;
   }
-
-  useEffect(() => {
-    if (cameraMode !== "Following") return;
-
-    const handleWheel = (event: WheelEvent) => {
-      camera.zoom = Math.min(maxZoom, Math.max(minZoom, camera.zoom - event.deltaY * zoomSpeed * 0.01));
-      camera.updateProjectionMatrix();
-    };
-  
-    const target = dragContainerRef;
-
-    target?.addEventListener("wheel", handleWheel);
-
-    return () => {
-        target?.removeEventListener("wheel", handleWheel);
-    }
-  }, [pivotRef, viewport.width, viewport.height, cameraMode, dragContainerRef]);
   
   function resetCam() {
     pivotRef.current.position.lerp(new Vector3(0,10,10), 0.9);

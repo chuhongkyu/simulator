@@ -2,16 +2,13 @@
 import { Canvas } from "@react-three/fiber";
 import Lights from "./Lights";
 import Floor from "./Floor";
-import Path from "./Path";
-import MainCar from "./MainCar";
 import Background from "./Background";
-import pathData from "@/utils/data";
 import Map from "./object/Map";
 import { useEffect, useRef } from "react";
 import useUIControllerStore from "@/store/useUIController";
 import Nav from "../view/Nav";
 import AIPathSystem from "./AIPathSystem";
-import { OrbitControls } from "@react-three/drei";
+import OrbitCamera from "./common/OrbitCamera";
 
 const Scene = () => {
     const canvasRef = useRef<HTMLDivElement>(null);
@@ -30,7 +27,7 @@ const Scene = () => {
                 <Background/>
                 <Lights />  
                 <Floor/>
-                <OrbitControls minDistance={5} makeDefault/>
+                <OrbitCamera/>
                 <AIPathSystem debug={true} />
                 <Map/>
             </Canvas>

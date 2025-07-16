@@ -1,11 +1,7 @@
-import Path from "./Path";
-import { Car } from "./Car";
 import { useEffect, useRef, useState } from "react";
 import { Group, Vector3 } from "three";
-import { useFrame, useThree } from "@react-three/fiber";
 import pathData from "@/utils/data";
 import FollowCamera from "./common/FollowCamera";
-import OrbitCamera from "./common/OrbitCamera";
 
 const MainCar = () => {
   const carRef = useRef<Group>(null);
@@ -27,9 +23,8 @@ const MainCar = () => {
   return (
     <>
       <group ref={carRef}>
-        <Car renderOrder={4}/>
+        
       </group>
-      <OrbitCamera targetRef={carRef}/>
       <FollowCamera 
         debug={true}
         targetRef={carRef} 
