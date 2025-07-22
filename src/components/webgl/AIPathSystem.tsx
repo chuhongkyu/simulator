@@ -15,6 +15,8 @@ import { Html, Line } from '@react-three/drei';
 import FollowCamera from './common/FollowCamera';
 import useCameraControllerStore from '@/store/useCameraController';
 import { useAIPathSystem } from '@/store/useAIPathSystem';
+import CustomPath from './object/path/CustomPath';
+import { IPath } from './object/path/PathTypes';
 
 interface AIPathSystemProps {
     debug?: boolean;
@@ -143,9 +145,8 @@ const AIPathSystem = ({ debug = false }: AIPathSystemProps) => {
         return geometry;
     }, [debug]);
 
-    // 경로 시각화
     const pathLines = useMemo(() => {
-        const lines: { points: THREE.Vector3[], color: string }[] = [];
+        const lines: IPath[] = [];
         
         const colors = [pathColors.Main, pathColors['Sub-1'], pathColors['Sub-2']];
         
@@ -194,16 +195,11 @@ const AIPathSystem = ({ debug = false }: AIPathSystemProps) => {
         <group>
             {/* 경로 시각화 */}
             {pathLines.map((line, index) => (
-                <group key={index + "_PATH"} position={[0, 0.05 + (index * 0.04),0]}>
-                    <Line
-                        points={line.points}
-                        color={line.color}
-                        lineWidth={10}
-                        dashed={false}
-                        transparent
-                        opacity={0.7}
-                    />
-                </group>
+                <CustomPath
+                    key={index + "_PATH"} 
+                    line={line} 
+                    position={[0, 0.05 + (index * 0.04),0]}
+                />
             ))}
             
             {/* AI 차량들 */}
