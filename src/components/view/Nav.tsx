@@ -1,7 +1,9 @@
 "use client"
+
 import CameraIcon from '@/icon/camera.svg';
 import ResetIcon from '@/icon/reset.svg';
 import useCameraControllerStore from '@/store/useCameraController';
+import CameraNumberIcon from './CameraNumberIcon';
 
 const Nav = () => {
     const { cameraNumber, cameraMode, setCameraMode } = useCameraControllerStore();
@@ -25,37 +27,40 @@ const Nav = () => {
                 <li>
                     <button 
                         onClick={() => handleCameraMode(0)}
-                        className={`p-1 rounded-md transition-colors duration-200 cursor-pointer flex items-center justify-center ${
+                        className={`relative p-1 rounded-md transition-colors duration-200 cursor-pointer flex items-center justify-center ${
                             cameraMode === "Following" && cameraNumber === 0
                                 ? "bg-blue-100 text-blue-600 hover:bg-blue-200" 
                                 : "bg-white hover:bg-gray-100"
                         }`}
                     >
                         <CameraIcon className="w-6 h-6" />
+                        <CameraNumberIcon number={1}/>
                     </button>
                 </li>
                 <li>
                     <button 
                         onClick={() => handleCameraMode(1)}
-                        className={`p-1 rounded-md transition-colors duration-200 cursor-pointer flex items-center justify-center ${
+                        className={`relative p-1 rounded-md transition-colors duration-200 cursor-pointer flex items-center justify-center ${
                             cameraMode === "Following" && cameraNumber === 1
                                 ? "bg-blue-100 text-blue-600 hover:bg-blue-200" 
                                 : "bg-white hover:bg-gray-100"
                         }`}
                     >
                         <CameraIcon className="w-6 h-6" />
+                        <CameraNumberIcon number={2}/>
                     </button>
                 </li>
                 <li>
                     <button 
                         onClick={() => handleCameraMode(2)}
-                        className={`p-1 rounded-md transition-colors duration-200 cursor-pointer flex items-center justify-center ${
+                        className={`relative p-1 rounded-md transition-colors duration-200 cursor-pointer flex items-center justify-center ${
                             cameraMode === "Following" && cameraNumber === 2
                                 ? "bg-blue-100 text-blue-600 hover:bg-blue-200" 
                                 : "bg-white hover:bg-gray-100"
                         }`}
                     >
                         <CameraIcon className="w-6 h-6" />
+                        <CameraNumberIcon number={3}/>
                     </button>
                 </li>
                 <li>
